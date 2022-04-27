@@ -21,6 +21,12 @@
             "title": "Description"
           }
         },
+        "7e92649b-058a-4831-8862-42d1b265543b": {
+          "type": "FAQS",
+          "settings": {
+            "title": "FAQs"
+          }
+        },
         "a9a59f69-a1a9-4ecd-9cda-bde49cff158f": {
           "type": "shopify:\/\/apps\/ryviu-aliexpress-reviews-app\/blocks\/ryviu-widget\/807ad6ed-1a6a-4559-abea-ed062858d9da",
           "settings": {
@@ -33,6 +39,7 @@
       },
       "block_order": [
         "78ab511a-893a-4d8c-93c3-f1a1ef83b4ab",
+        "7e92649b-058a-4831-8862-42d1b265543b",
         "a9a59f69-a1a9-4ecd-9cda-bde49cff158f"
       ],
       "settings": {
