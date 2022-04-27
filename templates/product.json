@@ -1,9 +1,18 @@
 {
   "sections": {
+    "165105728321b96a38": {
+      "type": "timeout",
+      "settings": {
+        "removeTop": true,
+        "startTime": "2022\/4\/27 14:00:00",
+        "time": 48
+      }
+    },
     "main": {
       "type": "main-product",
       "settings": {
         "show_amazon": true,
+        "show_sale": true,
         "show_quantity_selector": false,
         "show_vendor": false,
         "enable_payment_button": true,
@@ -57,6 +66,7 @@
     }
   },
   "order": [
+    "165105728321b96a38",
     "main",
     "desc",
     "16510319075fbbfc9b"
