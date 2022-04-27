@@ -1,14 +1,46 @@
 {
-	"sections": {
-		"main": {
-			"type": "main-product"
-		},
-		"desc": {
-			"type": "product-detail-tab"
-		}
-	},
-	"order": [
-		"main",
-		"desc"
-	]
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_quantity_selector": false,
+        "show_vendor": false,
+        "enable_payment_button": true,
+        "show_share_buttons": true,
+        "media_size": "medium",
+        "enable_image_zoom": true,
+        "enable_video_looping": false
+      }
+    },
+    "desc": {
+      "type": "product-detail-tab",
+      "blocks": {
+        "78ab511a-893a-4d8c-93c3-f1a1ef83b4ab": {
+          "type": "description",
+          "settings": {
+            "title": "Description"
+          }
+        }
+      },
+      "block_order": [
+        "78ab511a-893a-4d8c-93c3-f1a1ef83b4ab"
+      ],
+      "settings": {
+        "title": "这里是标题啊"
+      }
+    },
+    "16510319075fbbfc9b": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "heading": "You may also like",
+        "show_vendor": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "desc",
+    "16510319075fbbfc9b"
+  ]
 }
