@@ -408,6 +408,11 @@
 					</div>
 					<script>window.performance.mark('debut:product:title_visible');</script>
 
+					<!-- 产品信息 -->
+					<div class="product__info">
+						{% include 'product-info', variant: current_variant%}
+					</div>
+
 					<div class="product__price">
 						{% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
 					</div>
@@ -720,6 +725,12 @@
 			"id":"show_amazon",
 			"label":"显示亚马逊跳转",
 			"info":"需在要产品元字段buy_on_amazon配置亚马逊链接",
+			"default":false
+		},
+		{
+			"type":"checkbox",
+			"id":"show_sale",
+			"label":"显示产品具体折扣",
 			"default":false
 		},
 		{
