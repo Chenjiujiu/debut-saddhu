@@ -29,6 +29,25 @@
 			transform: translateY(0);
 		}
 	}
+	#shopify-section-{{ section.id }} .faqs{
+		padding: 30px 0;
+		background-color: #f8fafa;
+	}
+	#shopify-section-{{ section.id }} .faqs .faqs-box{
+		padding: 0 10px;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+	#shopify-section-{{ section.id }} .faqs .faqs-item{
+		padding: 10px 5px;
+	}
+	#shopify-section-{{ section.id }} .faqs .faqs-title{
+		font-weight: 600;
+	}
+	#shopify-section-{{ section.id }} .faqs .faqs-desc{
+		font-size: 16px;
+		color: #777;
+	}
 </style>
 
 <section class="section my-2" data-section-id="{{ section.id }}">
@@ -46,7 +65,9 @@
 						{%- if block.type == '@app' -%}
 							Reviews
 						{%- else -%}
-							{{- block.settings.title -}}
+							{%- unless block.type =='FAQS' and product.metafields.my_fields.faqs==blank -%}
+								{{- block.settings.title -}}
+							{%- endunless -%}
 						{%- endif -%}
 					</label>
 				</li>
@@ -70,9 +91,18 @@
 						WIbox
 					</div>
 				{%- when 'FAQS' -%}
-					<div class="faqs">
-						faqs
-					</div>
+					{%- if product.metafields.my_fields.faqs!=blank -%}
+						<div class="faqs">
+							<ul class="faqs-box d-flex flex-wrap">
+								{%- for item in  product.metafields.my_fields.faqs.value.data  -%}
+									<li class="faqs-item w-50">
+										<div class="faqs-title">{{forloop.index}}.{{item.q}}</div>
+										<p class="faqs-desc">{{item.a}}</p>
+									</li>
+								{%- endfor -%}
+							</ul>
+						</div>
+					{%- endif -%}
 				{%- when '@app' -%}
 					<div id="app_reviews">
 						{% render block %}
