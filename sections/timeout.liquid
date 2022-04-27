@@ -1,0 +1,160 @@
+<style>
+	{%- if section.settings.removeTop!=blank -%}
+		.main-content{
+			padding-top: 0 !important;
+		}
+	{%- endif -%}
+	#shopify-section-{{ section.id }} {
+		margin-bottom: 20px;
+		box-shadow: 0 0 3px 0 rgba(0,0,0,.5);
+	}
+	#shopify-section-{{ section.id }} .timeOut-box{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding: 5px 0;
+		background-color: #e6eae9;
+
+	}
+	#shopify-section-{{ section.id }} .timeOut-title{
+		padding-right: 10px;
+		font-size: 18px;
+		display: flex;
+		align-items: center;
+	}
+	#shopify-section-{{ section.id }} .timeOut-time{
+		display: flex;
+	}
+	#shopify-section-{{ section.id }} .timeOut-time>li{
+		background-color: #992702;
+		width: 50px;
+		margin-right: 10px;
+		padding: 10px 0;
+		border-radius: 5px;
+	}
+	#shopify-section-{{ section.id }} .timeOut-time p{
+		margin: 0;
+		line-height: 1;
+		color: #f4f4f4;
+		text-align: center;
+		font-size: 26px;
+		font-weight: 700;
+	}
+	#shopify-section-{{ section.id }} .timeOut-time .days-txt{
+		font-size: 12px;
+		font-weight: 400;
+	}
+
+</style>
+<section class="timeOut" data-section-id="{{ section.id }}">
+<div class="timeOut-box">
+	<div class="timeOut-title"><p>SALE ENDS IN</p></div>
+	<ul class="timeOut-time">
+		<li>
+			<p class="days-num">00</p>
+			<p class="days-txt">DAYS</p>
+		</li>
+		<li>
+			<p class="hours-num">00</p>
+			<p class="days-txt">HOURS</p>
+		</li>
+		<li>
+			<p class="minis-num">00</p>
+			<p class="days-txt">MINIS</p>
+		</li>
+		<li>
+			<p class="sec-num">00</p>
+			<p class="days-txt">SEC</p>
+		</li>
+	</ul>
+</div>
+</section>
+
+<script>
+~function (){
+	const startTime = new Date("{{section.settings.startTime}}")||new Date();
+	const time="{{section.settings.time}}"||24;
+	const timeS=parseInt(time)*3600;
+	const nowTime = new Date();
+	const startS=startTime.getTime();
+	const nowS=nowTime.getTime();
+	/*时间-(起始时间-当前时间)取余*/
+	let residue= timeS-Math.floor((nowS-startS)/1000)%timeS;
+
+	const dom = document.querySelector("#shopify-section-{{ section.id }}");
+	const day = dom.querySelector(".days-num");
+	const hours = dom.querySelector(".hours-num");
+	const minis = dom.querySelector(".minis-num");
+	const sec = dom.querySelector(".sec-num");
+
+	function getTime(s){
+		//计算出相差天数
+		let days=Math.floor(residue/(24*3600));
+		//计算出小时数
+		let leave1=residue%(24*3600);    //计算天数后剩余的秒数
+		let hours=Math.floor(leave1/(3600));
+		//计算相差分钟数
+		let leave2=leave1%(3600);        //计算小时数后剩余的秒数
+		let minis=Math.floor(leave2/(60));
+		//计算相差秒数
+		let sec=leave2%(60);      //计算分钟数后剩余的秒数
+		days=days<10?'0'+days:days;
+		hours=hours<10?'0'+hours:hours;
+		minis=minis<10?'0'+minis:minis;
+		sec=sec<10?'0'+sec:sec;
+		return {days,hours,minis,sec}
+	}
+
+
+	function render(time){
+		day.innerHTML=time.days;
+		hours.innerHTML=time.hours;
+		minis.innerHTML=time.minis;
+		sec.innerHTML=time.sec;
+	}
+
+	let timer = setInterval(()=>{
+		--residue;
+		let time = getTime(residue);
+		render(time)
+		if(residue<=0){
+			residue=timeS;
+		}
+	},1000)
+}()
+
+</script>
+
+{% schema %}
+{
+	"name": "倒计时",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "removeTop",
+			"label": "移除页面顶部空白",
+			"info":"倒计时条放在顶部时候,次开关移除顶部空白",
+			"default": false
+		},
+		{
+			"type": "text",
+			"id": "startTime",
+			"label": "开始时间",
+			"info":"格式:2022/4/27 14:00:00 ,必须小于当前时间"
+		},
+		{
+			"type": "number",
+			"id": "time",
+			"label": "持续时长",
+			"info":"单位:小时",
+			"default": 1
+		}
+	],
+	"presets": [
+		{
+			"category": "Time",
+			"name": "倒计时"
+		}
+	]
+}
+{% endschema %}

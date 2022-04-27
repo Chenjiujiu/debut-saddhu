@@ -26,6 +26,60 @@
     assign money_price = price | money
   endif
 -%}
+<style>
+  #shopify-section-{{ section.id }} .sale-badge {
+    --sale-badge-width: 70px;
+  }
+  @media screen and (max-width: 750px) {
+    #shopify-section-{{ section.id }} .sale-badge{
+      --sale-badge-width:50px;
+      font-size: 18px;
+    }
+  }
+  #shopify-section-{{ section.id }} .sale-badge{
+    width: var(--sale-badge-width);
+    height: var(--sale-badge-width);;
+    border-radius: 100%;
+    overflow: hidden;
+    background: #992702;
+    line-height: 1;
+    text-align: center;
+    position: relative;
+    transform: translateX(-30%);
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.6);
+  }
+  #shopify-section-{{ section.id }} .sale-badge:before{
+    content: "";
+    width: calc(var(--sale-badge-width) - 6px);
+    height: calc(var(--sale-badge-width) - 6px);
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px dashed #f4f4f4;
+    transform: translate(-50%,-50%);
+  }
+  #shopify-section-{{ section.id }} .sale-badge>div{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  #shopify-section-{{ section.id }} .sale-badge .sale-num{
+    margin-bottom: 0;
+    color: #f4f4f4;
+  }
+  #shopify-section-{{ section.id }} .sale-badge .sale-num span{
+    margin-left: 2px;
+    font-size: 0.6em;
+  }
+  #shopify-section-{{ section.id }} .sale-badge .sale-off{
+    margin-bottom: 0;
+    font-size: 0.6em;
+    color: #f4f4f4;
+  }
+</style>
+
+
 
 <dl class="price
   {% if available == false %} price--sold-out {% endif %}
@@ -40,59 +94,6 @@
       - div.price__unit: Displayed when the first variant has a unit price
       - div.price__availability: Displayed when the product is sold out
   {%- endcomment -%}
-
-  <style>
-    .sale-badge {
-      --sale-badge-width: 70px;
-    }
-    @media screen and (max-width: 750px) {
-      .sale-badge{
-        --sale-badge-width:50px;
-        font-size: 18px;
-      }
-    }
-    .sale-badge{
-      width: var(--sale-badge-width);
-      height: var(--sale-badge-width);;
-      border-radius: 100%;
-      overflow: hidden;
-      background: var(--color-sale-text);
-      line-height: 1;
-      text-align: center;
-      position: relative;
-      transform: translateX(-30%);
-      box-shadow: 0 0 4px 0 rgba(0,0,0,.6);
-    }
-    .sale-badge:before{
-      content: "";
-      width: calc(var(--sale-badge-width) - 6px);
-      height: calc(var(--sale-badge-width) - 6px);
-      border-radius: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      border: 1px dashed #f4f4f4;
-      transform: translate(-50%,-50%);
-    }
-    .sale-badge>div{
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    .sale-badge .sale-num{
-      margin-bottom: 0;
-      color: #f4f4f4;
-    }
-    .sale-badge .sale-num span{
-      margin-left: 2px;
-      font-size: 0.6em;
-    }
-    .sale-badge .sale-off{
-      margin-bottom: 0;
-      font-size: 0.6em;
-      color: #f4f4f4;
-    }
-  </style>
 
   <div class="price__pricing-group">
     {% if section.settings.show_sale and product.price < product.compare_at_price %}
@@ -140,6 +141,11 @@
       </dd>
     </div>
     <div class="price__badges">
+      {%- if section.settings.show_sale == blank -%}
+        <span class="price__badge price__badge--sale" aria-hidden="true">
+          <span>{{ 'products.product.on_sale' | t }}</span>
+        </span>
+      {%- endif -%}
         <span class="price__badge price__badge--sold-out">
         <span>{{ 'products.product.sold_out' | t }}</span>
       </span>
