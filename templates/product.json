@@ -1,0 +1,14 @@
+{
+	"sections": {
+		"main": {
+			"type": "main-product"
+		},
+		"desc": {
+			"type": "product-detail-tab"
+		}
+	},
+	"order": [
+		"main",
+		"desc"
+	]
+}

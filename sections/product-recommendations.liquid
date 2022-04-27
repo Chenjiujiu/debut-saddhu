@@ -1,7 +1,7 @@
 {%- if section.settings.show_product_recommendations -%}
   {%- if recommendations.performed -%}
     {%- if recommendations.products_count > 0 -%}
-      <div class="product-recommendations__inner">
+      <div class="product-recommendations__inner custom-recommend">
         {%- if section.settings.heading != blank -%}
           <div class="section-header text-center">
             <h2>{{ section.settings.heading | escape }}</h2>
@@ -46,6 +46,7 @@
     "zh-CN": "产品推荐",
     "zh-TW": "商品推薦"
   },
+  "templates":["product"],
   "settings": [
     {
       "type": "checkbox",
@@ -175,6 +176,12 @@
         "zh-TW": "顯示廠商"
       },
       "default": false
+    }
+  ],
+  "presets": [
+    {
+      "category": "Product",
+      "name": "推荐产品"
     }
   ]
 }

@@ -1,0 +1,158 @@
+<style>
+	{%- for block in section.blocks -%}
+	#shopify-section-{{ section.id }} .productTab-input:nth-of-type({{ forloop.index }}):checked ~ .productTab-nav ul li:nth-child({{ forloop.index }}) {
+		color: red;
+	}
+	#shopify-section-{{ section.id }} .productTab-input:nth-of-type({{ forloop.index }}):checked ~ .productTab-content >div:nth-child({{ forloop.index }}) {
+		display: block;
+	}
+	{%- endfor -%}
+	#shopify-section-{{ section.id }} .mobile{
+		padding-left: 0;
+	}
+	#shopify-section-{{ section.id }} .productTab-nav>ul{
+		background-color: #eee;
+	}
+	#shopify-section-{{ section.id }} .productTab-content div{
+		animation: dialog-fade-in .6s;
+	}
+	#shopify-section-{{ section.id }} .productTab-content div:last-child{
+		animation: none;
+	}
+	@keyframes dialog-fade-in {
+		from{
+			opacity: 0;
+			transform: translateY(-10px);
+		}
+		to{
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
+
+<section class="section my-2" data-section-id="{{ section.id }}">
+	{%- for block in section.blocks -%}
+		<input type="radio"
+					 id="productTab-{{ section.id }}-{{ block.id }}"
+					 class="hidden-d productTab-input"
+					 name="productTab-{{ section.id }}" {% if forloop.first %}checked{% endif %}>
+	{%- endfor -%}
+	<div class="productTab-nav">
+		<ul class="d-flex justify-content-center overflow-auto">
+			{% for block in section.blocks %}
+				<li class="px-1">
+					<label for="productTab-{{ section.id }}-{{ block.id }}" class="text-nowrap">
+						{%- if block.type == '@app' -%}
+							Reviews
+						{%- else -%}
+							{{- block.settings.title -}}
+						{%- endif -%}
+					</label>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="productTab-content overflow-hidden">
+		{% for block in section.blocks %}
+			<div class="hidden-d">
+				{%- case block.type -%}
+				{%- when 'description' -%}
+					<div class="description">
+						{{ product.description }}
+					</div>
+				{%- when 'features' -%}
+					<div class="features">
+						features
+					</div>
+				{%- when 'WIbox' -%}
+					<div class="WIbox">
+						WIbox
+					</div>
+				{%- when 'faqs' -%}
+					<div class="faqs">
+						faqs
+					</div>
+				{%- when '@app' -%}
+					<div id="app_reviews">
+						{% render block %}
+					</div>
+				{%- endcase -%}
+			</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "产品详情Tab--Sadhus",
+	"templates":["product"],
+	"settings": [
+		{
+			"type": "text",
+			"id": "title",
+			"label": "标题",
+			"default": "这里是标题啊"
+		}
+	],
+	"blocks": [
+		{
+			"type": "@app"
+		},
+		{
+			"type": "description",
+			"name": "产品详情",
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"选项卡标题",
+					"default":"description"
+				}
+			]
+		},
+		{
+			"type": "features",
+			"name": "产品特点",
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"选项卡标题",
+					"default":"features"
+				}
+			]
+		},
+		{
+			"type": "WIbox",
+			"name": "包装清单",
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"选项卡标题",
+					"default":"What's in the box"
+				}
+			]
+		},
+		{
+			"type": "FAQS",
+			"name": "常见问题",
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"选项卡标题",
+					"default":"FAQs"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"category": "Tab",
+			"name": "产品详情选项卡--Sadhus"
+		}
+	]
+}
+{% endschema %}

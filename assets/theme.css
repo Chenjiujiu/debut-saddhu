@@ -1196,7 +1196,7 @@ h4,
 .h4 {
   font-size: calc(((var(--font-h4-desktop)) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
-    
+
     h4,
     .h4 {
       font-size: calc(((var(--font-h4-mobile)) / (var(--font-size-base))) * 1em); } }
@@ -1206,7 +1206,7 @@ h5,
 .h5 {
   font-size: calc(((var(--font-h5-desktop)) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
-    
+
     h5,
     .h5 {
       font-size: calc(((var(--font-h5-mobile)) / (var(--font-size-base))) * 1em); } }
@@ -1216,7 +1216,7 @@ h6,
 .h6 {
   font-size: calc(((var(--font-h6-desktop)) / (var(--font-size-base))) * 1em); }
   @media only screen and (max-width: 749px) {
-    
+
     h6,
     .h6 {
       font-size: calc(((var(--font-h6-mobile)) / (var(--font-size-base))) * 1em); } }
@@ -1796,7 +1796,7 @@ select,
   padding-left: 15px;
   padding-bottom: 8px; }
   @media only screen and (min-width: 750px) {
-    
+
     select,
     .disclosure__toggle {
       padding-top: 10px;
@@ -2000,7 +2000,7 @@ textarea {
 
 .input-group__btn {
   flex-grow: 1; }
-  
+
   .input-group__btn .btn,
   .input-group__btn .shopify-payment-button .shopify-payment-button__button--unbranded,
   .shopify-payment-button .input-group__btn .shopify-payment-button__button--unbranded {
@@ -5198,8 +5198,7 @@ hr {
   color: var(--color-text); }
 
 .slideshow__arrows--mobile {
-  display: block;
-  width: 100%;
+  display: flex;
   height: 44px;
   background-color: transparent; }
   .slideshow__arrows--mobile .icon {
@@ -7032,4 +7031,26 @@ hr {
 
 #shopify-section-slideshow-milestone{
   padding-bottom:50px;padding-top:0px;}
+
+/*自定义组件*/
+slider-scroll .slider-ctrl{
+  background: rgba(122,122,122,.1);
+  color: #aaa;
+  transition: all ease .3s;
+  padding: 10px 5px ;
+}
+slider-scroll .slider-content>ul{
+  transition: transform ease .5s;
+}
+slider-scroll .slider-container:hover .slider-ctrl{
+  background: rgba(122,122,122,.3);
+  color: #ffffff;
+}
+slider-scroll .slider-container .slider-ctrl:hover{
+  background: rgba(122,122,122,.5);
+  color: #ffffff;
+}
+slider-scroll .slider-container .slider-ctrl.is-disable{
+  display: none;
+}
 

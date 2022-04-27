@@ -1,0 +1,27 @@
+{%- comment -%}
+	根据给定图像的最大大小创建支持的大小列表。必须传递一个"image"参数和一个"sizes"字符串(大小由逗号分隔)。
+	它将呈现可以捕获的受支持的大小作为输出
+{%- endcomment -%}
+
+{%- assign desired_sizes = sizes | split: ',' -%}
+{%- assign supported_sizes = '' -%}
+
+{%- for size in desired_sizes -%}
+	{%- assign size_as_int = size | times: 1 -%}
+
+	{%- if image.width < size_as_int -%}
+		{%- break -%}
+	{%- endif -%}
+
+	{%- assign supported_sizes = supported_sizes | append: size | append: ',' -%}
+{%- endfor -%}
+
+{%- comment -%}
+	如果没有匹配的单一大小，至少设置图像的最大宽度，这样至少有东西显示在屏幕上。
+{%- endcomment -%}
+
+{%- if supported_sizes == blank -%}
+	{%- assign supported_sizes = image.width -%}
+{%- endif -%}
+
+{{- supported_sizes | split: ',' | compact | join: ',' -}}
