@@ -3,6 +3,7 @@
     "main": {
       "type": "main-product",
       "settings": {
+        "show_amazon": true,
         "show_quantity_selector": false,
         "show_vendor": false,
         "enable_payment_button": true,
