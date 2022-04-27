@@ -8,7 +8,7 @@
     padding-right: 22px  !important;
 }
   }
- #shopify-section-{{ section.id }} .buy_on_amazon{
+#shopify-section-{{ section.id }} .buy_on_amazon{
   width: 100%;
   margin-top: 0;
   margin-bottom: 10px;
@@ -34,7 +34,7 @@
 #shopify-section-{{ section.id }} .buy_on_amazon .icon-amazon{
  position: relative;
   bottom: -14px;
-} 
+}
 
 </style>
 <div class="product-template__container page-width"
@@ -42,7 +42,7 @@
   data-section-id="{{ section.id }}"
   data-section-type="product"
   data-enable-history-state="true"
-  data-ajax-enabled="{{ settings.enable_ajax }}"   
+  data-ajax-enabled="{{ settings.enable_ajax }}"
 >
   {% comment %}
     Get first variant, or deep linked one
@@ -75,8 +75,8 @@
   {% endcase %}
 
   <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
-    
-   <div class="newx-warpdxje" > 
+
+   <div class="newx-warpdxje" >
     <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
@@ -172,7 +172,7 @@
 .pc_show{display:block;}
 .mobile_show{display:none;}
 .small-warpx{width:100%;border-top: 1px solid #f1f1f1;padding-top: 10px;border-bottom: 1px solid #f1f1f1;}
-.small-warpx .small-warp-ulx{text-align:center; width:100%; line-height:18px; margin:0 auto;} 
+.small-warpx .small-warp-ulx{text-align:center; width:100%; line-height:18px; margin:0 auto;}
 .small-warp-ulx li {display:block; float:left; width:48%;}
 .small-warp-ulx li img{vertical-align:middle;margin:0 auto;width: 35px;display:block; height:auto;}
 .small-warp-ulx li p{display:inline-block;font-size:14px; }
@@ -180,7 +180,7 @@
 .small-warp-ulx .small-warp-ulxlip p{ }
 .small-warp-ulx li svg{ fill:red; color:red;  }
 .paymentUlnews{margin-bottom:25px;}
-.paymentUlnews li{display:inline-block; margin-right:5px; height:30px; line-height:30px; font-size:12px;} 
+.paymentUlnews li{display:inline-block; margin-right:5px; height:30px; line-height:30px; font-size:12px;}
 .paymentUlnews   li img{vertical-align:middle; width:100%;}
 .product-warp{width:100%;}
 .product-warp img{width:100%;}
@@ -228,12 +228,12 @@
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
 
-        <h1 class="product-single__title">{{ product.title }}</h1>	    
+        <h1 class="product-single__title">{{ product.title }}</h1>
 <!-- RYVIU APP :: WIDGET-TOTAL -->
 <div class="review-widget">
   	<ryviu-widget-total reviews_data="{{product.metafields.ryviu.product_reviews_info  | escape  }}" product_id="{{product.id}}" handle="{{product.handle}}"></ryviu-widget-total>
 </div>
-<!-- / RYVIU APP -->  
+<!-- / RYVIU APP -->
 <div class="product-single__description rte mobile_show" style="margin:0">
 	<div class="small-warpx">
 		<ul  class="small-warp-ulx">
@@ -277,7 +277,7 @@
             <li>
                 <img src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/ul7.svg?v=1640765037">
             </li>
-          
+
           	<li>
                 <img src="https://cdn.shopifycdn.net/s/files/1/0528/0618/9234/files/stripe-svg.svg?v=1645436646">
             </li>
@@ -353,15 +353,15 @@
                 </div>
               </div>
             {% endif %}
-  
+
             <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}"
               data-error-message-wrapper
               role="alert"
             >
-              
+
               <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
               {% include 'icon-error' %}
-           
+
               <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
             </div>
 
@@ -370,7 +370,7 @@
                 {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
                 {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
               >
-                  
+
                 <div style="color: red;
     margin-top: 10px;
     font-size: 17px;
@@ -379,8 +379,8 @@
     padding-bottom: 30px;">
 <!--                   Please Choose Your Country on Header before Your Shopping -->
                 </div>
-                
-                
+
+
                 <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
@@ -409,7 +409,7 @@
               </div>
             </div>
           {% endform %}
-    
+
         </div>
 
         {%- comment -%}
@@ -419,7 +419,7 @@
           aria-live="polite"
           role="status"
         ></p>
-  
+
         {%- comment -%}
           Live region for announcing that the product form has been submitted and the
           product is in the process being added to the cart
@@ -453,18 +453,18 @@
 	<li>
 		<img src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/ul2.svg?v=1640765036">
 	</li>
-	 
+
 	<li>
 		<img src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/ul4.svg?v=1640765036">
 	</li>
 	<li>
 		<img src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/ul5.svg?v=1640765037">
 	</li>
-	 
+
 	<li>
 		<img src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/ul7.svg?v=1640765037">
 	</li>
-  
+
     <li>
       <img src="https://cdn.shopifycdn.net/s/files/1/0528/0618/9234/files/stripe-svg.svg?v=1645436646">
     </li>
@@ -472,11 +472,11 @@
 
 
 </div>
-    
-  </div>  
-    
-    
-    
+
+  </div>
+
+
+
 
 
 <div class="product-warp">
