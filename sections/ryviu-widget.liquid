@@ -1,0 +1,19 @@
+<!-- RYVIU APP :: WIDGET -->
+<div class="lt-block-reviews">
+    <ryviu-widget handle="{{product.handle}}" product_id="{{product.id}}" title_product="{{product.title}}" image_product="{{ product.featured_image.src | img_url: '100x' }}">
+    </ryviu-widget>
+</div>
+<!-- / RYVIU APP -->
+{% schema %}
+    {
+    "name": "Ryviu widget",
+    "settings": [],
+    "presets": [
+        {
+        "category": "System sections",
+        "name": "Ryviu widget"
+        }
+    ],
+    "templates": [ "product"]
+    }
+{% endschema %}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}" dir="{{ direction }}" class="{{ checkout_html_classes }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
+    <meta name="referrer" content="origin">
+
+    <title>{{ page_title }}</title>
+
+    {{ content_for_header }}
+
+    {{ checkout_stylesheets }}
+    {{ checkout_scripts }}
+  
+  {% render 'shogun-head' %}
+</head>
+  <body>
+    {{ skip_to_content_link }}
+
+    <header class="banner" data-header role="banner">
+      <div class="wrap">
+        {{ content_for_logo }}
+      </div>
+    </header>
+
+    {{ order_summary_toggle }}
+    <div class="content" data-content>
+      <div class="wrap">
+        <div class="main">
+          <header class="main__header" role="banner">
+            {{ content_for_logo }}
+            {{ breadcrumb }}
+<div class="small-warp mobile_shou">
+	<div class="small-warp-s">
+		<ul class="small-warp-ul">
+			<li>
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/1.svg?v=1640574867">
+				<p>Free Shipping on orders above $79 for most areas*</p>
+			</li>
+			<li style="float:right">
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/2.svg?v=1640574888">
+				<p>You can refund or replace the item for any reason within 30 days of delivery.</p>
+			</li>
+			<li>
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/3.svg?v=1640574888">
+				<p>Shipping Method: <img src="https://cdn.shopifycdn.net/s/files/1/0528/0618/9234/files/index.png?v=1645070288" alt=""></br>The shipping might take 2-5 business days to deliver.</p>
+			</li>
+			<li style="float:right">
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/4.svg?v=1640574888">
+				<p>We provide a 1-year warranty for main bodies and battery packs.</p>
+			</li>
+		</ul>
+	</div>
+</div>
+            {{ alternative_payment_methods }}
+          </header>
+          <main class="main__content" role="main">
+            {{ content_for_layout }}
+          </main>
+          <footer class="main__footer" role="contentinfo">
+            {{ content_for_footer }}
+          </footer>
+        </div>
+        <aside class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            {{ content_for_logo }}
+          </div>
+          <div class="sidebar__content">
+            {{ content_for_order_summary }}
+          </div>
+<style>
+.pc_show{display:none;}
+.mobile_shou{display:none;}
+ul li{text-align: left;line-height: 15px;margin-bottom: 10px;}
+ul li p{float:left;width:80%;}
+.sy-icon{float:left;margin-top: 12px;}
+
+@media screen and (min-width:1000px) {
+ul{text-align: center;line-height: 30px !important;height: auto !important;}
+ul li{width:50%;float:left;width: 49%;padding: 0 !important;}
+.small-warp-ul li img {width: 25px;vertical-align: middle;}
+.small-warp-ul li p {margin-left: 5px !important;font-size: 12px !important;display: inline-block;}
+	.pc_show{display:block;}
+	.order-summary__sections{height: calc(100vh - 10em);}
+}
+
+@media screen and (max-width:750px) {
+ul{text-align: center;line-height: 30px !important;height: auto !important;}
+ul li{width:50%;float:left;width: 48%;padding: 0 !important;}
+.small-warp-ul li img {width: 25px;vertical-align: middle;}
+.small-warp-ul li p {margin-left: 5px !important;font-size: 12px !important;display: inline-block;}
+	.mobile_shou{display:block;}
+	.order-summary__sections{height: calc(100vh - 10em);}
+}
+</style>
+<div class="small-warp pc_show">
+	<div class="small-warp-s">
+		<ul class="small-warp-ul">
+			<li>
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/1.svg?v=1640574867">
+				<p>Free Shipping on orders above $79 for most areas*</p>
+			</li>
+			<li>
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/2.svg?v=1640574888">
+				<p>You can refund or replace the item for any reason within 30 days of delivery.</p>
+			</li>
+			<li>
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/3.svg?v=1640574888">
+				<p>Shipping Method: <img src="https://cdn.shopifycdn.net/s/files/1/0528/0618/9234/files/index.png?v=1645070288" alt=""></br>The shipping might take 2-5 business days to deliver.</p>
+			</li>
+			<li>
+				<img class="sy-icon" src="https://cdn.shopify.com/s/files/1/0528/0618/9234/files/4.svg?v=1640574888">
+				<p>We provide a 1-year warranty for main bodies and battery packs.</p>
+			</li>
+		</ul>
+     </div>
+</div>
+        
+      </aside>    
+      </div>
+
+    </div>
+
+    {{ tracking_code }}
+  </body>
+<script type="text/javascript">
+{% if  checkout.order_id %}
+window._zbanx_order_id = {{ checkout.order_id }}
+{% endif %}
+!function(n){"function"==typeof define&&define.amd?define(n):n()}(function(){"use strict";var a="",o="zbanx_",n="",e="",t="track_code",c="pid",r="landing_uri";function d(n){n=new RegExp("(^|&)".concat(n,"=([^&]*)(&|$)")),n=location.search.substr(1).match(n);return null!==n?n[2]:null}function i(n){n=o+n;var a=null;try{var e=localStorage.getItem(n),a=e&&JSON.parse(e)}catch(n){}return a}function p(n,a){var e=new XMLHttpRequest;e.open("POST",n),e.send(a)}function u(){var n=new FormData;return n.append("z_code",d("z_code")||i(t)),n.append("landing_uri",i(r)),n.append("z_pid",d("z_pid")||i(c)),n.append("location",location.href),n.append("path",location.pathname),n.append("shop_domain",a),n}var h,l,_,f;l=(h={shop:"{{ shop.permanent_domain }}",trackUrl:"https://api.zbanx.com/"}).shop,h=h.trackUrl,a=l,n="".concat(h,"track/pv"),e="".concat(h,"track/order"),p(n,u()),void 0!==(f=window.Shopify)&&(f.checkout||f.Checkout)&&(_=u(),f=f.checkout||f.Checkout,f=window._zbanx_order_id||f.order_id||f.id,_.append("order_id",f),p(e,_))});
+</script>
+</html>
