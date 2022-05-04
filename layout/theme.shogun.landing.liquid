@@ -16,7 +16,7 @@ This file can be re-written at any time.
   ttq.page();
 }(window, document, 'ttq');
 </script>
-  
+
   <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
@@ -25,7 +25,7 @@ This file can be re-written at any time.
   ttq.page();
 }(window, document, 'ttq');
 </script>
-  
+
   <script>
 !function (w, d, t) {
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
@@ -34,7 +34,7 @@ This file can be re-written at any time.
   ttq.page();
 }(window, document, 'ttq');
 </script>
-  
+
   <meta name="google-site-verification" content="bNBvE8MR13oCEoZPE-IBS_avYDOGilGKRoQ3kb5l8FE" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -58,7 +58,9 @@ This file can be re-written at any time.
   <link rel="preload" as="font" href="{{ base_font_bold | font_url }}" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ 'theme.js' | asset_url }}" as="script">
   <link rel="preload" href="{{ 'lazysizes.js' | asset_url }}" as="script">
-  
+
+  <link rel="stylesheet" href="{{ 'global.css' | asset_url }}">
+  <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
   <meta name="google-site-verification" content="ss3JXIBOPqrKU1Hx6tapraNgVxtV62kPqwsMP4GYOFQ" />
 
   {%- if canonical_url != blank  -%}
@@ -228,8 +230,8 @@ This file can be re-written at any time.
   </script>
 
   {{ content_for_header }}
-	  
-<!-- RYVIU APP :: Settings global -->	
+
+<!-- RYVIU APP :: Settings global -->
     <script> var ryviu_global_settings = {{shop.metafields.ryviu.user_settings }};</script>
 <!-- RYVIU APP -->
 {% capture boostersnippet %}{% include "booster-apps-common" %}{% endcapture %}{% unless boostersnippet contains "Liquid error" %}{{ boostersnippet }}{% endunless %}
@@ -256,34 +258,34 @@ const myPromise = new Promise((resolve, reject) => {
 $.get('https://api.ipgeolocation.io/ipgeo?apiKey=b94f2ce092014193af4fc5764d6ea99d').done(function(data) {
 
 window.h_ipgeolocation=data
-resolve(data); 
+resolve(data);
 //  console.log(data.country_name);
 //	alert(data.country_name);
 if(data.country_name == 'Spain'){
-$(".shopifytcwarpzdc").show(); 	  
-$(".shopifytcwarpSpain").show(); 	  
+$(".shopifytcwarpzdc").show();
+$(".shopifytcwarpSpain").show();
 }
 if(data.country_name == 'Italy'){
 
-$(".shopifytcwarpzdc").show(); 	  
-$(".shopifytcwarpItaly").show(); 	  
+$(".shopifytcwarpzdc").show();
+$(".shopifytcwarpItaly").show();
 }
 if(data.country_name == 'France'){
-$(".shopifytcwarpzdc").show(); 	  
-$(".shopifytcwarpFrance").show(); 	  
-} 
+$(".shopifytcwarpzdc").show();
+$(".shopifytcwarpFrance").show();
+}
 if(data.country_name == 'Germany'){
- $(".shopifytcwarpzdc").show(); 	  
-$(".shopifytcwarpGermany").show(); 	  
-} 
+ $(".shopifytcwarpzdc").show();
+$(".shopifytcwarpGermany").show();
+}
 if(data.country_name == 'United Kingdom'){
-$(".shopifytcwarpzdc").show(); 	  
-$(".shopifytcwarpUnited").show(); 	  
+$(".shopifytcwarpzdc").show();
+$(".shopifytcwarpUnited").show();
 }
 //if(data.country_name == 'United States'){
-//$(".shopifytcwarpzdc").show(); 	  
-//$(".shopifytcwarpStates").show(); 	  
-//} 
+//$(".shopifytcwarpzdc").show();
+//$(".shopifytcwarpStates").show();
+//}
 
 }).fail(function(err) {
 reject( err );
@@ -291,11 +293,11 @@ reject( err );
 });
 // console.log(myPromise)
 //return myPromise
-$(".shopifytcwarp32").click(function () { 
- $(".shopifytcwarpzdc").hide(); 	  
- $(".shopifytcwarp").hide(); 	  
+$(".shopifytcwarp32").click(function () {
+ $(".shopifytcwarpzdc").hide();
+ $(".shopifytcwarp").hide();
 //alert('123');
-})     
+})
 </script>
 <script src="//cdn.codeblackbelt.com/js/modules/frequently-bought-together/main.min.js?shop=usmileofficial.myshopify.com" defer></script>
 <script type="application/json" data-cart-routes>
