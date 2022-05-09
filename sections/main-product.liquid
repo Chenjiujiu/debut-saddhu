@@ -416,6 +416,26 @@
 					<div class="product__price">
 						{% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
 					</div>
+					<!-- 自定义文案信息 -->
+					{%- if section.settings.customText != blank -%}
+						<style>
+							.custom__text{
+								padding-left: 70px;
+							}
+							.custom__text p{
+								color: {{ section.settings.customColor }};
+							}
+							@media screen and (max-width: 750px) {
+								.custom__text{
+									padding-left: 50px;
+								}
+							}
+						</style>
+						<div class="custom__text">
+							<div >{{ section.settings.customText }}</div>
+						</div>
+					{%- endif -%}
+
 
 					{%- comment -%}
 						{%- comment -%}---------------删除运费提示信息---------------{%- endcomment -%}
@@ -732,6 +752,17 @@
 			"id":"show_sale",
 			"label":"显示产品具体折扣",
 			"default":false
+		},
+		{
+			"type":"richtext",
+			"id":"customText",
+			"label":"自定义文案信息"
+		},
+		{
+			"type":"color",
+			"id":"customColor",
+			"label":"自定义文案信息颜色",
+			"default":"#ff0000"
 		},
 		{
 			"type": "checkbox",
