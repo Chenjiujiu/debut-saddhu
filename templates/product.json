@@ -13,7 +13,7 @@
       "settings": {
         "show_amazon": true,
         "show_sale": true,
-        "customText": "<p>Code<\/p>",
+        "customText": "",
         "customColor": "#ff0000",
         "show_quantity_selector": false,
         "show_vendor": false,
