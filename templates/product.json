@@ -13,8 +13,8 @@
       "settings": {
         "show_amazon": true,
         "show_sale": true,
-        "customText": "",
-        "customColor": "#ff0000",
+        "custom_text": "",
+        "show_custom_style": true,
         "show_quantity_selector": false,
         "show_vendor": false,
         "enable_payment_button": true,
