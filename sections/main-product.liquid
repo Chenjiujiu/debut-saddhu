@@ -417,22 +417,34 @@
 						{% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
 					</div>
 					<!-- 自定义文案信息 -->
-					{%- if section.settings.customText != blank -%}
+					{%- if section.settings.custom_text != blank -%}
 						<style>
 							.custom__text{
 								padding-left: 70px;
 							}
-							.custom__text p{
-								color: {{ section.settings.customColor }};
+							.custom__text.custom_style .line{
+								display: inline-block;
+								line-height: 1;
+								background: #992702;
+								box-shadow: 0 0 4px 0 rgba(0,0,0,.6);
+								padding: 2px;
+							}
+							.custom__text.custom_style span{
+								display: inline-block;
+								color: #f4f4f4;
+								padding: 5px 8px;
 							}
 							@media screen and (max-width: 750px) {
 								.custom__text{
 									padding-left: 50px;
 								}
+								.custom__text.custom_style span{
+									font-size: 14px;
+								}
 							}
 						</style>
-						<div class="custom__text">
-							<div >{{ section.settings.customText }}</div>
+						<div class="custom__text {% if section.settings.show_custom_style %} custom_style{%endif %}">
+							<div class="line"><span>{{ section.settings.custom_text }}</span></div>
 						</div>
 					{%- endif -%}
 
@@ -754,15 +766,15 @@
 			"default":false
 		},
 		{
-			"type":"richtext",
-			"id":"customText",
+			"type":"text",
+			"id":"custom_text",
 			"label":"自定义文案信息"
 		},
 		{
-			"type":"color",
-			"id":"customColor",
-			"label":"自定义文案信息颜色",
-			"default":"#ff0000"
+			"type":"checkbox",
+			"id":"show_custom_style",
+			"label":"显示边框背景",
+			"default":true
 		},
 		{
 			"type": "checkbox",
