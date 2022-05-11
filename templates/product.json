@@ -13,7 +13,7 @@
       "settings": {
         "show_amazon": true,
         "show_sale": true,
-        "custom_text": "Code：RAGBA        Discounted Prices：$38.99",
+        "custom_text": "{{ product.metafields.my_fields.code.value }}",
         "show_custom_style": true,
         "show_quantity_selector": false,
         "show_vendor": false,
