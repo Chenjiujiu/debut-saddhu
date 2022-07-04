@@ -13,7 +13,7 @@
       "settings": {
         "show_amazon": true,
         "show_sale": true,
-        "custom_text": "{{ product.metafields.my_fields.code.value }}",
+        "custom_text": "",
         "show_custom_style": true,
         "show_quantity_selector": false,
         "show_vendor": false,
